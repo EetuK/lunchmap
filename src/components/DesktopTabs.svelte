@@ -1,27 +1,28 @@
 <script context="module" lang="ts">
 	export interface TabItem {
 		label: string;
-		value: number;
+		id: string;
 		component: any;
 	}
 </script>
 
 <script lang="ts">
-	export let items: TabItem[] = [];
-	export let activeTabValue = 1;
+	import { routeStore } from '../stores/routeStore';
 
-	const handleClick = (tabValue: number) => () => (activeTabValue = tabValue);
+	export let items: TabItem[] = [];
+
+	const handleClick = (tabId: string) => () => ($routeStore.query.view = tabId);
 </script>
 
 <ul>
 	{#each items as item}
-		<li class={activeTabValue === item.value ? 'active' : ''}>
-			<span on:click={handleClick(item.value)}>{item.label}</span>
+		<li class={$routeStore.query.view === item.id ? 'active' : ''}>
+			<span on:click={handleClick(item.id)}>{item.label}</span>
 		</li>
 	{/each}
 </ul>
 {#each items as item}
-	{#if activeTabValue == item.value}
+	{#if $routeStore.query.view == item.id}
 		<svelte:component this={item.component} />
 	{/if}
 {/each}

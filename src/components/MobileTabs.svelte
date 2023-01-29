@@ -1,22 +1,22 @@
 <script lang="ts">
+	import { routeStore } from '../stores/routeStore';
 	import type { TabItem } from './DesktopTabs.svelte';
-	export let activeTabValue = 1;
 	export let items: TabItem[];
 
-	const handleClick = (tabValue: number) => () => (activeTabValue = tabValue);
+	const handleClick = (tabId: string) => () => ($routeStore.query.view = tabId);
 </script>
 
 <div class="container">
 	<div class="content">
 		{#each items as item}
-			{#if activeTabValue == item.value}
+			{#if $routeStore.query.view == item.id}
 				<svelte:component this={item.component} />
 			{/if}
 		{/each}
 	</div>
 	<div class="nav">
 		{#each items as item}
-			<div class="button" on:click={handleClick(item.value)}>
+			<div class="button" on:click={handleClick(item.id)}>
 				{item.label}
 			</div>
 		{/each}

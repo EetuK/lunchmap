@@ -7,14 +7,22 @@
 	import MobileTabs from './MobileTabs.svelte';
 	import Map from './Map.svelte';
 	import FiltersTab from './FiltersTab.svelte';
+	import { onMount } from 'svelte';
+	import { routeStore } from '../stores/routeStore';
 
-	const filtersTab = { label: 'Filters', value: 1, component: FiltersTab };
-	const restaurantsTab = { label: 'Restaurants', value: 2, component: RestaurantList };
-	const settingsTab = { label: 'Settings', value: 3, component: SettingsTab };
-	const mobileMapTab = { label: 'Map', value: 4, component: Map };
+	const filtersTab = { label: 'Filters', id: 'filters', component: FiltersTab };
+	const restaurantsTab = { label: 'Restaurants', id: 'restaurants', component: RestaurantList };
+	const settingsTab = { label: 'Settings', id: 'settings', component: SettingsTab };
+	const mobileMapTab = { label: 'Map', id: 'map', component: Map };
 
 	const desktopItems: TabItem[] = [filtersTab, restaurantsTab, settingsTab];
 	const mobileItems: TabItem[] = [restaurantsTab, filtersTab, mobileMapTab, settingsTab];
+
+	onMount(() => {
+		if (!$routeStore.query.view) {
+			$routeStore.query.view = 'filters';
+		}
+	});
 </script>
 
 <PageWrapper>

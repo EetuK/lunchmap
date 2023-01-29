@@ -1,24 +1,29 @@
 <script lang="ts">
-	import { restaurantKeywordsAndCategories } from '../stores/restaurantsStore';
 	import MultiSelect from 'svelte-multiselect';
-	import { filterWords } from '../stores/filterStore';
+	import { restaurantKeywordsAndCategories } from '../stores/restaurantsStore';
+	import { arrayToStringArray, getQueryStringArray, routeStore } from '../stores/routeStore';
+
+	const filterNotSelected = (option: string) => (value: string) => value !== option;
 </script>
 
 <div class="container">
 	<MultiSelect
 		options={restaurantKeywordsAndCategories}
 		placeholder="Filters"
-		selected={$filterWords}
+		selected={getQueryStringArray($routeStore.query.filterWords)}
 		focusInputOnSelect={false}
 		on:change={({ detail: { option, type } }) => {
+			const wordsArray = getQueryStringArray($routeStore.query.filterWords);
 			if (type === 'add' && option && typeof option === 'string') {
-				$filterWords = [...$filterWords, option];
+				$routeStore.query.filterWords = arrayToStringArray([...wordsArray, option]);
 			}
 			if (type === 'remove' && option && typeof option === 'string') {
-				$filterWords = $filterWords.filter((value) => value !== option);
+				$routeStore.query.filterWords = arrayToStringArray(
+					wordsArray?.filter(filterNotSelected(option)) ?? undefined
+				);
 			}
 			if (type === 'removeAll') {
-				$filterWords = [];
+				$routeStore.query.filterWords = arrayToStringArray();
 			}
 		}}
 	>

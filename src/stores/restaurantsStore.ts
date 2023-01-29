@@ -1,6 +1,6 @@
 import { derived, writable, type Writable } from 'svelte/store';
 import restaurantsData from "../data/restaurants.json"
-import { filterWords, type FilterWords } from './filterStore';
+import { getQueryStringArray, routeStore } from './routeStore';
 
 export interface Restaurant {
   name: string,
@@ -27,15 +27,16 @@ const createRestaurantsStore = (restaurants: Restaurant[]): Writable<Restaurant[
 export const restaurants = createRestaurantsStore(restaurantsData)
 
 export const filteredRestaurants = derived<
-  [Writable<FilterWords>, Writable<Restaurant[]>],
+  [typeof routeStore, Writable<Restaurant[]>],
   Restaurant[]
 >(
-  [filterWords, restaurants],
-  ([$filterWords, $restaurants]) => {
+  [routeStore, restaurants],
+  ([$route, $restaurants]) => {
     return $restaurants.filter((restaurant) => {
-      const isEmptyFilter = $filterWords?.length === 0 || !$filterWords
-      const hasKeywords = restaurant.keywordArray.find((word) => $filterWords?.includes(word))
-      const hasCategory = restaurant.categoryArray.find((word) => $filterWords?.includes(word))
+      const filterArray = getQueryStringArray($route.query.filterWords)
+      const isEmptyFilter = filterArray.length === 0 || !filterArray
+      const hasKeywords = restaurant.keywordArray.find((word) => filterArray.includes(word))
+      const hasCategory = restaurant.categoryArray.find((word) => filterArray.includes(word))
       return isEmptyFilter || hasKeywords || hasCategory
     }
     );
