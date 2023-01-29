@@ -1,38 +1,24 @@
-# create-svelte
+# Lunch map
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This project was started for need to see lunch options nearby office. Stockholm sadly doesn't already have websites for this tasks so there's need to create new one.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Initial idea of the app is just to have list of lunch places on map. MVP Data storage for restaurants is Google Sheet which is pushlished to the internet and scraped by Python script that updates `restaurants.json` file.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start app by running
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+Fetch data from Google Sheet published version by running
 
 ```bash
-npm run build
+npm run update-data
 ```
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Copyright (C) Eetu Koskelainen
+[MIT](./MIT.txt)
