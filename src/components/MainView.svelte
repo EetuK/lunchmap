@@ -3,24 +3,28 @@
 	import PageWrapper from './PageWrapper.svelte';
 	import RestaurantList from './RestaurantList.svelte';
 	import SettingsTab from './SettingsTab.svelte';
-	import type { TabItem } from './DesktopTabs.svelte';
+	import { ViewId, type TabItem } from './DesktopTabs.svelte';
 	import MobileTabs from './MobileTabs.svelte';
 	import Map from './Map.svelte';
 	import FiltersTab from './FiltersTab.svelte';
 	import { onMount } from 'svelte';
 	import { routeStore } from '../stores/routeStore';
 
-	const filtersTab = { label: 'Filters', id: 'filters', component: FiltersTab };
-	const restaurantsTab = { label: 'Restaurants', id: 'restaurants', component: RestaurantList };
-	const settingsTab = { label: 'Settings', id: 'settings', component: SettingsTab };
-	const mobileMapTab = { label: 'Map', id: 'map', component: Map };
+	const filtersTab = { label: 'Filters', id: ViewId.Filters, component: FiltersTab };
+	const restaurantsTab = {
+		label: 'Restaurants',
+		id: ViewId.Restaurants,
+		component: RestaurantList
+	};
+	const settingsTab = { label: 'Settings', id: ViewId.Settings, component: SettingsTab };
+	const mobileMapTab = { label: 'Map', id: ViewId.Map, component: Map };
 
 	const desktopItems: TabItem[] = [filtersTab, restaurantsTab, settingsTab];
 	const mobileItems: TabItem[] = [restaurantsTab, filtersTab, mobileMapTab, settingsTab];
 
 	onMount(() => {
 		if (!$routeStore.query.view) {
-			$routeStore.query.view = 'filters';
+			$routeStore.query.view = ViewId.Filters;
 		}
 	});
 </script>

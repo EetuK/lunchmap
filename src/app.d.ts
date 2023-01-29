@@ -17,3 +17,7 @@ declare module 'leaflet?client' {
 
 declare module '*?client';
 declare module '*?server';
+
+declare module '@fortawesome/free-solid-svg-icons/index.es' {
+	export * from '@fortawesome/free-solid-svg-icons';
+}

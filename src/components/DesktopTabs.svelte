@@ -1,8 +1,15 @@
 <script context="module" lang="ts">
 	export interface TabItem {
 		label: string;
-		id: string;
+		id: ViewId;
 		component: any;
+	}
+
+	export enum ViewId {
+		Restaurants = 'restaurants',
+		Filters = 'filters',
+		Map = 'map',
+		Settings = 'settings'
 	}
 </script>
 
@@ -11,7 +18,7 @@
 
 	export let items: TabItem[] = [];
 
-	const handleClick = (tabId: string) => () => ($routeStore.query.view = tabId);
+	const handleClick = (tabId: ViewId) => () => ($routeStore.query.view = tabId);
 </script>
 
 <ul>
@@ -62,9 +69,5 @@
 
 	span:hover {
 		border-color: #e9ecef #e9ecef #dee2e6;
-	}
-
-	.box {
-		width: 100%;
 	}
 </style>

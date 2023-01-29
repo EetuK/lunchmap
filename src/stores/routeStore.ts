@@ -1,6 +1,7 @@
+import type { ViewId } from 'src/components/DesktopTabs.svelte';
 import { createRouteStore, type Route, type RouteStore } from 'svelte-store-router'
 
-type CustomRouteStore = RouteStore<{ query: { filterWords?: string, view?: string } } & Route>
+type CustomRouteStore = RouteStore<{ query: { filterWords?: string, view?: ViewId } } & Route>
 
 export const routeStore: CustomRouteStore = createRouteStore({
   delay: 100,

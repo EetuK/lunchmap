@@ -2,6 +2,7 @@
 	import MultiSelect from 'svelte-multiselect';
 	import { restaurantKeywordsAndCategories } from '../stores/restaurantsStore';
 	import { arrayToStringArray, getQueryStringArray, routeStore } from '../stores/routeStore';
+	import Icon from './ui/Icon.svelte';
 
 	const filterNotSelected = (option: string) => (value: string) => value !== option;
 </script>
@@ -37,7 +38,6 @@
 		flex-direction: column;
 		width: 100%;
 		padding-bottom: 16px;
-		border-bottom: 1px solid var(--lavender-light);
 		font-size: 16px;
 	}
 
@@ -51,5 +51,7 @@
 		margin-right: 16px;
 		border-radius: 8px;
 		font-size: 16px;
+
+		--sms-options-max-height: 250px;
 	}
 </style>
