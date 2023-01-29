@@ -20,14 +20,5 @@
 		--black: #090b0d;
 
 		color: var(--black);
-
-		--primary-color-1: #b53c3c;
-		--primary-color-2: #ffa631;
-
-		--helper-color-1: #333333;
-		--helper-color-2: #666666;
-		--helper-color-3: #999999;
-		--helper-color-4: #cccccc;
-		--helper-color-5: #ffffff;
 	}
 </style>
