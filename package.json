@@ -20,6 +20,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.2.1",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^1.0.5",
 		"@sveltejs/kit": "next",
 		"@types/mapbox-gl": "^2.7.10",
 		"@types/svelte-leafletjs": "^0.8.2",
