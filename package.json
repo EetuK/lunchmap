@@ -45,7 +45,8 @@
 		"vh-check": "^2.0.5",
 		"vite": "^4.0.0",
 		"vite-plugin-iso-import": "^1.0.0",
-		"vitest": "^0.25.3"
+		"vitest": "^0.25.3",
+		"yesvelte": "^0.0.2-next.52"
 	},
 	"type": "module"
 }
