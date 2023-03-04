@@ -1,26 +1,9 @@
 <script lang="ts">
-	import { crossfade } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
 	export let name: string;
 	export let categories: string[];
 	export let keywords: string[];
-
-	// const [send, receive] = crossfade({
-	// 	duration: (d) => Math.sqrt(d * 200),
-
-	// 	fallback(node, params) {
-	// 		return {
-	// 			duration: 600,
-	// 			easing: quintOut,
-	// 			css: (t) => `
-	// 				opacity: ${t}
-	// 			`
-	// 		};
-	// 	}
-	// });
 </script>
 
-<!-- <div class="container" in:receive={{ key: name }} out:send={{ key: name }}> -->
 <div class="container">
 	<div>
 		{#each categories as category}

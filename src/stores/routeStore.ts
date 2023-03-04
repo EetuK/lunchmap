@@ -1,5 +1,6 @@
-import type { ViewId } from 'src/components/DesktopTabs.svelte';
+
 import { createRouteStore, type Route, type RouteStore } from 'svelte-store-router'
+import type { ViewId } from '../components/views/map/DesktopTabs.svelte';
 
 type CustomRouteStore = RouteStore<{ query: { filterWords?: string, view?: ViewId } } & Route>
 

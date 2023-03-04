@@ -15,19 +15,23 @@
 
 <script lang="ts">
 	import { routeStore } from '../../../stores/routeStore';
+	import TabButton from '../../ui/TabButton.svelte';
 
 	export let items: TabItem[] = [];
 
-	const handleClick = (tabId: ViewId) => () => ($routeStore.query.view = tabId);
+	const handleClick = (tabId: ViewId) => ($routeStore.query.view = tabId);
 </script>
 
-<ul>
+<div>
 	{#each items as item}
-		<li class={$routeStore.query.view === item.id ? 'active' : ''}>
-			<span on:click={handleClick(item.id)}>{item.label}</span>
-		</li>
+		<TabButton
+			tabItem={item}
+			{handleClick}
+			isLabelShown={true}
+			isActive={$routeStore.query.view === item.id}
+		/>
 	{/each}
-</ul>
+</div>
 {#each items as item}
 	{#if $routeStore.query.view == item.id}
 		<svelte:component this={item.component} />
@@ -35,39 +39,11 @@
 {/each}
 
 <style>
-	ul {
+	div {
 		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
+		padding: 16px;
 		width: 100%;
-		padding-left: 0;
-		list-style: none;
-		border-bottom: 1px solid var(--lavender-light) !important;
-		padding-bottom: 8px;
-		margin-bottom: 16px;
-	}
-
-	li {
-		font-size: 0.85rem;
-		margin-bottom: -1px;
-		color: var(--green-gray);
-	}
-
-	li.active > span {
-		color: var(--black);
-		font-weight: 600;
-	}
-
-	span {
-		display: block;
-		padding-top: 4px;
-		padding-bottom: 4px;
-		padding-left: 8px;
-		padding-right: 8px;
-		cursor: pointer;
-	}
-
-	span:hover {
-		border-color: #e9ecef #e9ecef #dee2e6;
+		max-height: 40px;
+		justify-content: space-evenly;
 	}
 </style>
