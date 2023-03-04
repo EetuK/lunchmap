@@ -1,14 +1,14 @@
 <script lang="ts">
 	import DesktopMapBar from './DesktopMapBar.svelte';
-	import PageWrapper from './PageWrapper.svelte';
-	import RestaurantList from './RestaurantList.svelte';
-	import SettingsTab from './SettingsTab.svelte';
+	import PageWrapper from '../../ui/PageWrapper.svelte';
+	import RestaurantList from './restaurants-list/RestaurantList.svelte';
+	import SettingsTab from './settings/SettingsTab.svelte';
 	import { ViewId, type TabItem } from './DesktopTabs.svelte';
 	import MobileTabs from './MobileTabs.svelte';
 	import Map from './Map.svelte';
-	import FiltersTab from './FiltersTab.svelte';
+	import FiltersTab from './filter/FiltersTab.svelte';
 	import { onMount } from 'svelte';
-	import { routeStore } from '../stores/routeStore';
+	import { routeStore } from '../../../stores/routeStore';
 
 	const filtersTab = { label: 'Filters', id: ViewId.Filters, component: FiltersTab };
 	const restaurantsTab = {

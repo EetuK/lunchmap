@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { routeStore } from '../stores/routeStore';
+	import { routeStore } from '../../../stores/routeStore';
 	import { ViewId, type TabItem } from './DesktopTabs.svelte';
-	import Icon from './ui/Icon.svelte';
+	import Icon from '../../ui/Icon.svelte';
 	export let items: TabItem[];
 
 	const handleClick = (tabId: ViewId) => () => ($routeStore.query.view = tabId);

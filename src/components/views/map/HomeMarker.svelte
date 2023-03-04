@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Marker, Icon } from 'svelte-leafletjs?client';
-	import { preferences } from '../stores/preferencesStore';
+	import { preferences } from '../../../stores/preferencesStore';
 
 	const iconOptions = {
 		iconUrl: '/icons/home-2-fill.png',

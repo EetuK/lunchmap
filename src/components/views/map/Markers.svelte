@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { LeafletMap, Marker, TileLayer, Popup, Tooltip } from 'svelte-leafletjs?client';
-	import type { Restaurant } from '../stores/restaurantsStore';
+	import { Marker, Popup, Tooltip } from 'svelte-leafletjs?client';
+	import type { Restaurant } from '../../../stores/restaurantsStore';
 	export let restaurants: Restaurant[] = [];
 </script>
 

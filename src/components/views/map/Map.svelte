@@ -2,13 +2,13 @@
 	import { browser } from '$app/environment';
 	import 'leaflet/dist/leaflet.css';
 	import { LeafletMap, TileLayer } from 'svelte-leafletjs?client';
-	import { isSettingLocation } from '../stores/viewStore';
-	import { filteredRestaurants, type Restaurant } from '../stores/restaurantsStore';
+	import { isSettingLocation } from '../../../stores/viewStore';
+	import { filteredRestaurants, type Restaurant } from '../../../stores/restaurantsStore';
 	import {
 		preferences,
 		setHomeCoordinates,
 		type HomeCoordinates
-	} from '../stores/preferencesStore';
+	} from '../../../stores/preferencesStore';
 	import Markers from './Markers.svelte';
 	import HomeMarker from './HomeMarker.svelte';
 	import L from 'leaflet';

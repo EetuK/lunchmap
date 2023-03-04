@@ -1,8 +1,11 @@
 <script lang="ts">
 	import MultiSelect from 'svelte-multiselect';
-	import { restaurantKeywordsAndCategories } from '../stores/restaurantsStore';
-	import { arrayToStringArray, getQueryStringArray, routeStore } from '../stores/routeStore';
-	import Icon from './ui/Icon.svelte';
+	import { restaurantKeywordsAndCategories } from '../../../../stores/restaurantsStore';
+	import {
+		arrayToStringArray,
+		getQueryStringArray,
+		routeStore
+	} from '../../../../stores/routeStore';
 
 	const filterNotSelected = (option: string) => (value: string) => value !== option;
 </script>

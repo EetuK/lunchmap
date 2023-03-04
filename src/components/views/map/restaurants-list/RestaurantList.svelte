@@ -1,6 +1,6 @@
 <script>
 	import RestaurantListItem from './RestaurantListItem.svelte';
-	import { filteredRestaurants } from '../stores/restaurantsStore';
+	import { filteredRestaurants } from '../../../../stores/restaurantsStore';
 </script>
 
 <div class="list">

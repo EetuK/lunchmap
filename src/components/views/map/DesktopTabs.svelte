@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import { routeStore } from '../stores/routeStore';
+	import { routeStore } from '../../../stores/routeStore';
 
 	export let items: TabItem[] = [];
 

@@ -1,5 +1,5 @@
 <script>
-	import MainView from '../components/MainView.svelte';
+	import MainView from '../components/views/map/MainView.svelte';
 </script>
 
 <MainView />

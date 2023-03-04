@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isSettingLocation } from '../stores/viewStore';
+	import { isSettingLocation } from '../../../../stores/viewStore';
 </script>
 
 <div class="container">
