@@ -7,7 +7,6 @@
 <style lang="scss">
 	:global(body) {
 		margin: 0;
-		font-family: Verdana, Geneva, Tahoma, sans-serif;
 		overflow: hidden;
 	}
 
