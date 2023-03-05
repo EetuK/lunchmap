@@ -43,7 +43,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-radius: 12px;
+		border-radius: 4px;
 		padding-left: 16px;
 		padding-right: 16px;
 		padding-top: 8px;
