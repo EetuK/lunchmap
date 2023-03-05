@@ -65,5 +65,7 @@
 	span {
 		padding-left: 8px;
 		font-size: 16px;
+		font-weight: 400;
+		letter-spacing: 1px;
 	}
 </style>
