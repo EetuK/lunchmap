@@ -32,6 +32,7 @@
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
+		color: #000;
 	}
 
 	.title-row {
