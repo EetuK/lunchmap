@@ -58,7 +58,7 @@
 	onMount(() => {
 		unsubscriber = filteredRestaurants.subscribe((restaurants) => {
 			const bounds = getRestaurantAndHomeBounds(restaurants, $preferences.homeCoordinates);
-			map && map.getMap().fitBounds(bounds, L.point(200, 300));
+			map && map.getMap().fitBounds(bounds, { padding: [30, 30] });
 		});
 
 		map && map.getMap().on('click', onMapClick);
