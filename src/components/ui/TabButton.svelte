@@ -51,19 +51,19 @@
 		background-color: var(--white);
 		border: none;
 		flex: 0;
-		font-size: 16px;
 	}
 
 	.button-container:hover {
-		background-color: rgba(204, 140, 43, 0.3);
+		background-color: #ffdca8;
 		cursor: pointer;
 	}
 
 	.active {
-		background-color: rgba(0, 70, 0, 0.12);
+		background-color: #ffe9c7;
 	}
 
 	span {
 		padding-left: 8px;
+		font-size: 16px;
 	}
 </style>
